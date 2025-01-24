@@ -16,8 +16,7 @@ networks:
     name: ix-qbittorrent_qbit_webnet
     external: true
 
-          
-version: '2.4'
+
 services:
     cabernet:
       container_name: cabernet
