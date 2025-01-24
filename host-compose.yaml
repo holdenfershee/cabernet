@@ -15,11 +15,6 @@ services:
       - "6077:6077"    # Web Interface Port
       - "5004:5004"    # Port used to stream
     image: ghcr.io/cabernetwork/cabernet:latest
-    networks:
-      network1:
-        ipv4_address: 10.44.1.13
-      network2:
-        ipv4_address: 192.168.0.243
     restart: unless-stopped
     volumes:
       - /mnt/Pool-120.62/Apps/cabernet/data:/app/data
