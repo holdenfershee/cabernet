@@ -17,10 +17,10 @@ services:
         resources:
           limits:
             cpus: '4'
-              memory: 4096M
+            memory: 4096M
       image: ghcr.io/cabernetwork/cabernet:latest
       environment:
-        - TZ= America/Chicago  # Timezone (Optional)
+        - TZ=America/Chicago  # Timezone (Optional)
         - PUID=1000     # UserID (Optional)
         - PGID=1000     # GroupID (Optional)
       ports:
