@@ -10,10 +10,10 @@
 #    with the external folders for docker
 networks:
   network1:
-    name: qbit_net
+    name: ix-qbittorrent_qbit_net
     external: true
   network2:
-    name: qbit_webnet
+    name: ix-qbittorrent_qbit_webnet
     external: true
 
           
@@ -35,9 +35,9 @@ services:
         - "6077:6077"    # Web Interface Port
         - "5004:5004"    # Port used to stream
       networks:
-        qbit_net:
+        network1:
           ipv4_address: 10.44.1.13
-        qbit_webnet:
+        network2:
           ipv4_address: 192.168.0.243
       restart: unless-stopped
       volumes:
