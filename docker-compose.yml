@@ -8,7 +8,24 @@
 #          - ../docker/cabernet/secrets:/app/.cabernet        # Ecryption key data (Optional)
 #    This will add a docker folder at the same level as the cabernet source
 #    with the external folders for docker
-
+networks:
+  caber_net:
+    driver: macvlan
+    driver_opts:
+      parent: vlan44
+    ipam:
+      config:
+        - gateway: 10.44.1.1
+          subnet: 10.44.1.0/24
+  caber_webnet:
+    driver: macvlan
+    driver_opts:
+      parent: vlan192
+    ipam:
+      config:
+        - gateway: 192.168.0.1
+          subnet: 192.168.0.0/24
+          
 version: '2.4'
 services:
     cabernet:
@@ -26,6 +43,11 @@ services:
       ports:
         - "6077:6077"    # Web Interface Port
         - "5004:5004"    # Port used to stream
+      networks:
+        qbit_net:
+          ipv4_address: 10.44.1.13
+        qbit_webnet:
+          ipv4_address: 192.168.0.243
       restart: unless-stopped
       volumes:
         - /mnt/Pool-120.62/Apps/cabernet/data:/app/data   # App data (Optional)
