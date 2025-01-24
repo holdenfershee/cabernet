@@ -11,8 +11,13 @@
 
 version: '2.4'
 services:
-    cabernet:
-        container_name: cabernet
+  cabernet:
+    container_name: cabernet
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 4096M
         image: ghcr.io/cabernetwork/cabernet:latest
         environment:
           - TZ="America/Chicago"  # Timezone (Optional)
