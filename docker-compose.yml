@@ -15,7 +15,7 @@ services:
         container_name: cabernet
         image: ghcr.io/cabernetwork/cabernet:latest
         environment:
-          - TZ="Etc/UTC"  # Timezone (Optional)
+          - TZ="America/Chicago"  # Timezone (Optional)
           - PUID=1000     # UserID (Optional)
           - PGID=1000     # GroupID (Optional)
         ports:
@@ -23,6 +23,6 @@ services:
           - "5004:5004"    # Port used to stream
         restart: unless-stopped
         volumes:
-          - /path/to/cabernet/data:/app/data                # App data (Optional)
-          - /path/to/cabernet/plugins_ext:/app/plugins_ext  # Plugins Data (Optional)
-          - /path/to/cabernet/secrets:/app/.cabernet        # Ecryption key data (Optional)
+          - /mnt/Pool-120.62/Apps/cabernet/data:/app/data   # App data (Optional)
+          - /mnt/Pool-120.62/Apps/cabernet/plugins:/app/plugins_ext  # Plugins Data (Optional)
+          - /mnt/Pool-120.62/Apps/cabernet/secrets:/app/.cabernet        # Ecryption key data (Optional)
